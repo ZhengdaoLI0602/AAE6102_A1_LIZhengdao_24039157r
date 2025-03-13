@@ -1,9 +1,15 @@
 ## PDF version
 Apart from the following markdown format, a clear PDF version of A1 is available here: [`A1_LIZhengdao_24039157r`](https://github.com/ZhengdaoLI0602/AAE6102_A1_LIZhengdao_24039157r/blob/main/AAE6102_Assignments.pdf)
 
+## How to produce the outcomes
+The results in this report are processed based on the FGI-GSRx software-defined receiver (SDR) open-sourced by the Finnish Geospatial Research Institute[^1]. 
+
+The folder `AAE6102/Plots` contains all the Figure that is included in the assignment. Within the folder `main\grsx`, set the 
+
+
 ## Task 1
 
-The results in this report are processed based on the FGI-GSRx software-defined receiver (SDR) open-sourced by the Finnish Geospatial Research Institute[^1]. The initial acquisition results display 9 satellites (PRN 3,4,8,16,22,26,27,31,32) for the open-sky dataset and 7 satellites (PRN 1,3,7,11,18,22,28) for the urban dataset, respectively, as detailed in Figure 1.
+The initial acquisition results display 9 satellites (PRN 3,4,8,16,22,26,27,31,32) for the open-sky dataset and 7 satellites (PRN 1,3,7,11,18,22,28) for the urban dataset, respectively, as detailed in Figure 1.
 
 ### Initial Acquisition Results
 
