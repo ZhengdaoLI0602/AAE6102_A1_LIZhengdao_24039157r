@@ -18,17 +18,19 @@ The results in this report are processed based on the FGI-GSRx software-defined 
 
 ## Task 2
 
-In this report, the multipath effect is assumed to occur only in the urban dataset, but not in the open-sky dataset.
+In this report, the multipath effect is assumed to occur only in the urban dataset, but not in the open-sky dataset. We will adopt this assumption for the remainder of the discussion.
 
-Traditional GNSS receivers use a correlator spacing of -0.5 chip, 0, and 0.5 chips for early, prompt, and late correlators, respectively. This setup is used in the Early-Minus-Late (EML) code tracking loop to estimate the code phase error. Multi-correlator features smaller correlator spacing (e.g., -0.5chips: 0.1chips: 0.5chips) to provide more detailed autocorrelation profile.
+Traditional GNSS receivers use a correlator spacing of-0.5 chip, 0, and 0.5 chips for early, prompt, and late correlators, respectively. This setup is used in the Early-Minus-Late (EML) code tracking loop to estimate the code phase error. Multi-correlator features smaller correlator spacing (e.g.,-0.5chips: 0.1chips: 0.5chips) to provide more detailed autocorrelation profile.
 
-For the open-sky dataset, the autocorrelation curve should be in an "isosceles triangular" shape. In contrast, the autocorrelation plot of urban datasets could hold two scenarios: constructive and destructive multipath effects. For both multipath scenarios, the autocorrelation curves will show more distortion and randomness than those from the open-sky dataset, and the correlation peaks of the two scenarios tend to have a time delay (shifted rightwards).
+For the open-sky dataset, the autocorrelation curve should be in an ‘isosceles triangular’ shape. In contrast, the autocorrelation plot of urban datasets could hold two scenarios: constructive and destructive multipath effects. For both multipath scenarios, the autocorrelation curves will show more distortion and randomness than those from the open-sky dataset, and the correlation peaks of the two scenarios tend to have a time delay (shifted rightwards). As for the constructive multipath case, the magnitude of the peaks appears to be higher than those from the open-sky dataset, while the magnitude of peaks given by the destructive multipath will be lower.
+
+For conventional tracking loop, the early phase will alway be made equal to the late phase, the location of the peak will be used to be the prompt phase. In this case, since the multipath effect impacts the peaks of the correlation curves to be shifted rightward, there will be time delay after receiver conducts the tracking and pseudorange measurement error will be enlarged.
+
 
 ## Task 3
-
 We particularly analyze the satellite PRN16 in the open-sky dataset. The SDR has the functionality of decoding for navigation message and the output results (including general information, timing and reference parameters, polynomial correction terms, and orbital parameters) have been summarized in Table 1.
 
-### GPS L1 Ephemeris Parameters for PRN16
+### Table 1: GPS L1 Ephemeris Parameters for PRN16
 
 | Variable | Explanation | Value |
 | :-- | :-- | :-- |
