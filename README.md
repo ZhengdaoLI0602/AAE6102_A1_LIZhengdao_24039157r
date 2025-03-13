@@ -1,5 +1,5 @@
 ## PDF version
-A clear PDF version of A1 is available here: [`A1_LIZhengdao_24039157r`](https://github.com/ZhengdaoLI0602/AAE6102_A1_LIZhengdao_24039157r/blob/main/AAE6102_Assignments.pdf)
+Apart from the following markdown format, a clear PDF version of A1 is available here: [`A1_LIZhengdao_24039157r`](https://github.com/ZhengdaoLI0602/AAE6102_A1_LIZhengdao_24039157r/blob/main/AAE6102_Assignments.pdf)
 
 ## Task 1
 
