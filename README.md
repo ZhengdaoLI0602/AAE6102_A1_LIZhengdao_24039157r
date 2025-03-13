@@ -2,9 +2,7 @@
 Apart from the following markdown format, a clear PDF version of A1 is available here: [`A1_LIZhengdao_24039157r`](https://github.com/ZhengdaoLI0602/AAE6102_A1_LIZhengdao_24039157r/blob/main/AAE6102_Assignments.pdf)
 
 ## How to produce the outcomes
-The results in this report are processed based on the FGI-GSRx software-defined receiver (SDR) open-sourced by the Finnish Geospatial Research Institute[^1]. 
-
-The folder `AAE6102/Plots` contains all the Figure that is included in the assignment. Within the folder `main\grsx`, set the 
+The results in this report are processed based on the FGI-GSRx software-defined receiver (SDR) open-sourced by the Finnish Geospatial Research Institute[^1]. The folder **AAE6102** contains the modified or written scripts for Assignment 1. Notably, the folder **AAE6102/Plots** contains all the Figures included in the assignment. Within the script **main\grsx.m**, the acquisition and tracking process is completed before line 138. The navigation process begins at line 139, set the variable `settings.sys.ls_type` of 0 to run Ordinary Least Squares (OLS), 1 to run Weighted Least Squares (WLS), and 2 to run Extended Kalman Filter (EKF).
 
 
 ## Task 1
