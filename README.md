@@ -20,7 +20,7 @@ The initial acquisition results display 9 satellites (PRN 3,4,8,16,22,26,27,31,3
 
 
 
-## Task 2 (I did not finish it due to limited time, sorry about it.)
+## Task 2 (I did not finish it due to the limited time; sorry about that.)
 
 In this report, the multipath effect is assumed to occur only in the urban dataset, but not in the open-sky dataset. We will adopt this assumption for the remainder of the discussion.
 
