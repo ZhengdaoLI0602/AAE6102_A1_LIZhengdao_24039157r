@@ -20,15 +20,18 @@ The initial acquisition results display 9 satellites (PRN 3,4,8,16,22,26,27,31,3
 
 
 
-## Task 2 (I did not finish it due to the limited time; sorry about that.)
+## Task 2
 
 In this report, the multipath effect is assumed to occur only in the urban dataset, but not in the open-sky dataset. We will adopt this assumption for the remainder of the discussion.
 
 Traditional GNSS receivers use a correlator spacing of-0.5 chip, 0, and 0.5 chips for early, prompt, and late correlators, respectively. This setup is used in the Early-Minus-Late (EML) code tracking loop to estimate the code phase error. Multi-correlator features smaller correlator spacing (e.g.,-0.5chips: 0.1chips: 0.5chips) to provide more detailed autocorrelation profile.
 
-For the open-sky dataset, the autocorrelation curve should be in an ‘isosceles triangular’ shape. In contrast, the autocorrelation plot of urban datasets could hold two scenarios: constructive and destructive multipath effects. For both multipath scenarios, the autocorrelation curves will show more distortion and randomness than those from the open-sky dataset, and the correlation peaks of the two scenarios tend to have a time delay (shifted rightwards). As for the constructive multipath case, the magnitude of the peaks appears to be higher than those from the open-sky dataset, while the magnitude of peaks given by the destructive multipath will be lower.
+For the open-sky dataset, the autocorrelation curves in Figure 2a are more likely to be in an ‘isosceles triangular’ shape. In contrast, the autocorrelation plot of urban datasets could hold two scenarios: constructive and destructive
+multipath effects. For both multipath scenarios, in Figure 2b , the autocorrelation curves will show more distortion and randomness than those from the open-sky dataset, and the correlation peaks of the two scenarios tend to have
+a time delay (shifted rightwards). As for the constructive multipath case, the magnitude of the peaks appears to be higher than those from the open-sky dataset, while the magnitude of peaks given by the destructive multipath will be lower.
 
 For conventional tracking loop, the early phase will alway be made equal to the late phase, the location of the peak will be used to be the prompt phase. In this case, since the multipath effect impacts the peaks of the correlation curves to be shifted rightward, there will be time delay after receiver conducts the tracking and pseudorange measurement error will be enlarged.
+![acf](https://github.com/user-attachments/assets/8081e38d-9fbf-4d96-925c-a0841b8dfc00)
 
 
 ## Task 3
@@ -105,7 +108,7 @@ $$
 
 In the measurement noise covariance matrix, we set the variance for delta pseudorange measurement to be 10m, and that for delta pseudorange rate to be 0.1m/s. For the setting of the process noise covariance matrix Q, the prediction and update procedures of EKF, one can refer to [^3]. Besides, the initial position of EKF is set based on positioning results given by OLS.
 
-We set a period of 90ms for a navigation solution, and finally get the total resultant number of epochs during 90s to be 926. For the open-sky and urban datasets, we benchmark the positioning results of OLS, WLS and EKF with the ground truth locations in the latitude-longitude-height (LLH) coordinate. The 2D results are presented in Figure 2a for open-sky dataset, and in Figure 2b for the urban dataset Besides, the position error (Figure 3a and 3b) and velocity (Figure 4a and 4b) in Earth-North-Up (ENU) coordinate are plotted for both datasets.
+We set a period of 90ms for a navigation solution, and finally get the total resultant number of epochs during 90s to be 926. For the open-sky and urban datasets, we benchmark the positioning results of OLS, WLS and EKF with the ground truth locations in the latitude-longitude-height (LLH) coordinate. The 2D results are presented in Figure 2a for open-sky dataset, and in Figure 2b for the urban dataset. Besides, the position error (Figure 3a and 3b) and velocity (Figure 4a and 4b) in Earth-North-Up (ENU) coordinate are plotted for both datasets.
 
 
 ![F2](https://github.com/user-attachments/assets/5fe51d83-5ba6-4b3e-971d-001637e2a892)
