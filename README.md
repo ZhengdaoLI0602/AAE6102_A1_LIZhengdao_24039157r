@@ -32,36 +32,36 @@ We particularly analyze the satellite PRN16 in the open-sky dataset. The SDR has
 
 | Variable | Explanation | Value |
 | :-- | :-- | :-- |
-| WeekNumber | -- | 1155 |
-| PRN | Pseudorandom Noise code | 16 |
-| refTime | Transmission time of the signal | 390108.0138 |
-| Pos | Satellite position in ECEF frame (m) | [-1.1009e+06, 2.3775e+07, 1.1045e+07] |
-| Clock | Satellite Clock Correction | -4.0688e-04 |
-| health | Satellite health status (0 = healthy) | 0 |
-| T\_GD | Total Group Delay (hardware signal delay in seconds) | 1.8626e-09 |
-| IODC | Issue of Data Clock (clock parameters identifier) | 56 |
-| t\_oc | Reference Time of Clock (seconds of GPS week) | 396000 |
-| a\_f2 | Satellite clock drift rate coefficient (s/s²) | 0 |
-| a\_f1 | Satellite clock drift coefficient (s/s) | -1.3756e-11 |
-| a\_f0 | Satellite clock bias (s) | -3.2456e-04 |
-| IODE\_sf2 | Issue of Data Ephemeris in subframe 2 | 56 |
-| C\_rs | Amplitude of sine correction to orbit radius (m) | -110.1563 |
-| deltan | Mean motion difference from computed value (rad/s) | 4.4020e-09 |
-| M\_0 | Mean anomaly at reference time (rad) | 2.7467 |
-| C\_uc | Amplitude of cosine correction to argument of latitude (rad) | -5.7314e-06 |
-| e | Eccentricity (dimensionless) | 0.0039 |
-| C\_us | Amplitude of sine correction to argument of latitude (rad) | 6.0219e-06 |
-| sqrtA | Square root of semi-major axis (m$^{1/2}$) | 5.1538e+03 |
-| t\_oe | Reference Time of Ephemeris (seconds of GPS week) | 396000 |
-| C\_ic | Amplitude of cosine correction to inclination (rad) | -2.6077e-08 |
-| omega\_0 | Longitude of ascending node at weekly epoch (rad) | 1.3772 |
-| C\_is | Amplitude of sine correction to inclination (rad) | -6.3330e-08 |
-| i\_0 | Inclination angle at reference time (rad) | 0.9707 |
-| C\_rc | Amplitude of cosine correction to orbit radius (m) | 266.0313 |
-| omega | Argument of perigee (rad) | 0.9996 |
-| omegaDot | Rate of right ascension change (rad/s) | -8.0410e-09 |
-| iDot | Rate of inclination angle change (rad/s) | -1.3001e-10 |
-| IODE\_sf3 | Issue of Data Ephemeris in subframe 3 | 56 |
+| `WeekNumber` | -- | 1155 |
+| `PRN` | Pseudorandom Noise code | 16 |
+| `refTime` | Transmission time of the signal | 390108.0138 |
+| `Pos` | Satellite position in ECEF frame (m) | [-1.1009e+06, 2.3775e+07, 1.1045e+07] |
+| `Clock` | Satellite Clock Correction | -4.0688e-04 |
+| `health` | Satellite health status (0 = healthy) | 0 |
+| `T\_GD` | Total Group Delay (hardware signal delay in seconds) | 1.8626e-09 |
+| `IODC` | Issue of Data Clock (clock parameters identifier) | 56 |
+| `t\_oc` | Reference Time of Clock (seconds of GPS week) | 396000 |
+| `a\_f2` | Satellite clock drift rate coefficient (s/s²) | 0 |
+| `a\_f1` | Satellite clock drift coefficient (s/s) | -1.3756e-11 |
+| `a\_f0` | Satellite clock bias (s) | -3.2456e-04 |
+| `IODE\_sf2` | Issue of Data Ephemeris in subframe 2 | 56 |
+| `C\_rs` | Amplitude of sine correction to orbit radius (m) | -110.1563 |
+| `deltan` | Mean motion difference from computed value (rad/s) | 4.4020e-09 |
+| `M\_0` | Mean anomaly at reference time (rad) | 2.7467 |
+| `C\_uc` | Amplitude of cosine correction to argument of latitude (rad) | -5.7314e-06 |
+| `e` | Eccentricity (dimensionless) | 0.0039 |
+| `C\_us` | Amplitude of sine correction to argument of latitude (rad) | 6.0219e-06 |
+| `sqrtA` | Square root of semi-major axis (m$^{1/2}$) | 5.1538e+03 |
+| `t\_oe` | Reference Time of Ephemeris (seconds of GPS week) | 396000 |
+| `C\_ic` | Amplitude of cosine correction to inclination (rad) | -2.6077e-08 |
+| `omega\_0` | Longitude of ascending node at weekly epoch (rad) | 1.3772 |
+| `C\_is` | Amplitude of sine correction to inclination (rad) | -6.3330e-08 |
+| `i\_0` | Inclination angle at reference time (rad) | 0.9707 |
+| `C\_rc` | Amplitude of cosine correction to orbit radius (m) | 266.0313 |
+| `omega` | Argument of perigee (rad) | 0.9996 |
+| `omegaDot` | Rate of right ascension change (rad/s) | -8.0410e-09 |
+| `iDot` | Rate of inclination angle change (rad/s) | -1.3001e-10 |
+| `IODE\_sf3` | Issue of Data Ephemeris in subframe 3 | 56 |
 
 ## Task 4 \& 5
 
