@@ -1,10 +1,9 @@
-# Introduction
-
-The results in this report are processed based on the FGI-GSRx software-defined receiver (SDR) open-sourced by the Finnish Geospatial Research Institute[^1].
+## PDF version
+A clear PDF version of A1 is available here: 
 
 ## Task 1
 
-The initial acquisition results display 9 satellites (PRN 3,4,8,16,22,26,27,31,32) for the open-sky dataset and 7 satellites (PRN 1,3,7,11,18,22,28) for the urban dataset, respectively.
+The results in this report are processed based on the FGI-GSRx software-defined receiver (SDR) open-sourced by the Finnish Geospatial Research Institute[^1]. The initial acquisition results display 9 satellites (PRN 3,4,8,16,22,26,27,31,32) for the open-sky dataset and 7 satellites (PRN 1,3,7,11,18,22,28) for the urban dataset, respectively.
 
 ### Initial Acquisition Results
 
@@ -139,7 +138,6 @@ Please insert figures as needed using Markdown syntax, e.g., `Figure Caption`.
 
 This Markdown version maintains the structure and content of your original LaTeX document but uses Markdown syntax for formatting and links.
 
-<div style="text-align: center">⁂</div>
 
 [^1]: https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/52988654/bc71b884-b5a7-4343-8b8c-7b3c2a287b1b/paste.txt
 
