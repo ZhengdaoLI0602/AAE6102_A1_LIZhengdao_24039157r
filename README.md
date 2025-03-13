@@ -69,50 +69,69 @@ We particularly analyze the satellite PRN16 in the open-sky dataset. The SDR has
 
 ### Positioning Settings and Results
 
-The design of the weighting matrix for Weighted Least Squares (WLS) positioning is based on the satellite Carrier-to-Noise density ($CN_0$) and elevation angle ($EL$), as proposed in. Specifically, the weighting matrix $\bm{W}$ is given by:
+The design of the weighting matrix for Weighted Least Squares (WLS) positioning is based on the satellite Carrier-to-Noise density ($CN_0$) and elevation angle ($EL$), as proposed in [^2]. Specifically, the weighting matrix **W** is given by:
+![Eq1](https://github.com/user-attachments/assets/fd3d2427-845e-4a12-a702-eb0ab1f2fc29)
+
+
+where the parameters are tuned as $T=50,\ F=20,\ A=50,\ a=30$, to be fit in with the urban environment of Hong Kong. Therefore, in the Earth-centered, Earth-fixed (ECEF) coordinate, the position fix vector $$\Delta X=[\Delta x, \Delta y,\Delta z,  c \Delta b_{clk}]^\top$$ ($c$ denotes the speed of light) in each iteration in the algorithm becomes:
 
 $$
-\bm{W}= \left\{
-\begin{array}{lr} 
-\frac{1}{\sin^2(EL)}\left( 10^{-\frac{CN_0-T}{a}}\left( \left(\frac{A}{10^{-\frac{F-T}{a}}}-1\right)\frac{CN_0-T}{F-T}  +1 \right) \right),        &  CN_0 < T \\
-1,       &   CN_0 \geq T
-\end{array},
-\right.
+    \Delta X = (G^\top WG)^{-1}G^\top W\Delta \rho,
 $$
 
-where the parameters are tuned as $T=50,\ F=20,\ A=50,\ a=30$, to be fit in with the urban environment of Hong Kong.
+where $G$ is the measurement matrix, $\Delta \rho$ is the delta pseudorange measurements. Similarly, the velocity vector $$V=[ V_x, V_y,V_z, c\dot{b}_{clk}]^\top$$ in each iteration becomes:
+
+$$
+    V = (G^\top WG)^{-1}G^\top W \Delta \dot{\rho},
+$$
+
+where $\Delta \dot{\rho}$ denotes the vector of delta pseudorange rate measurement. Notably, the positioning results without the weighting matrix is denoted as Ordinary Least-Squares (OLS) positioning and will be taken as a comparison.
 
 Extended Kalman Filter (EKF) can integrate the information from the pseudorange and Doppler measurements and estimate the user position and velocity simultaneously. In this report, the designed state vector
 
 $$
-\bm{S}=[\Delta x, \Delta y,\Delta z,V_x, V_y,V_z,c\Delta b_{clk}, c\dot{b}_{clk}]^\top,
+**S**=[\Delta x, \Delta y,\Delta z,V_x, V_y,V_z,c\Delta b_{clk}, c\dot{b}_{clk}]^\top,
 $$
 
 and the measurement vector
 
 $$
-\bm{Z}=[\Delta \rho_1,\ldots, \Delta \rho_m, \Delta \dot{\rho}_1, \ldots, \Delta \dot{\rho}_m]^\top.
+**Z**=[\Delta \rho_1,..., \Delta \rho_m, \Delta \dot{\rho}_1, ..., \Delta \dot{\rho}_m]^\top.
 $$
 
+In the measurement noise covariance matrix, we set the variance for delta pseudorange measurement to be 10m, and that for delta pseudorange rate to be 0.1m/s. For the setting of the process noise covariance matrix Q, the prediction and update procedures of EKF, one can refer to [^3]. Besides, the initial position of EKF is set based on positioning results given by OLS.
+
+We set a period of 90ms for a navigation solution, and finally get the total resultant number of epochs during 90s to be 926. For the open-sky and urban datasets, we benchmark the positioning results of OLS, WLS and EKF with the ground truth locations in the latitude-longitude-height (LLH) coordinate. The 2D results are presented in Figure 2a for open-sky dataset, and in Figure 2b for the urban dataset Besides, the position error (Figure 3a and 3b) and velocity (Figure 4a and 4b) in Earth-North-Up (ENU) coordinate are plotted for both datasets.
+
+
+![F2](https://github.com/user-attachments/assets/5fe51d83-5ba6-4b3e-971d-001637e2a892)
+
+
+![F3](https://github.com/user-attachments/assets/2309fa29-df4e-4fa2-a7aa-c248622f9059)
+
+
+![F4](https://github.com/user-attachments/assets/8eb20419-4bc0-40cf-99f6-3a681a9cdc14)
+
+
+ 
 ### Evaluations
 
-Overall, the 2D positioning accuracy order is: EKF>WLS>OLS. This can also be reflected in Tables 1 and 2, where the 2D RMSE of EKF is better than WLS better than WLS.
+Overall, in Figure 2, it can be seen that the 2D positioning accuracy order is: EKF>WLS>OLS, since the closeness between distributed points and ground truth has the order: EKF>WLS>OLS. This can also be reflected in Table 2 and 3, where 2D RMSE of EKF is better than WLS better than WLS.
 
-For both datasets, though the EKF positionings may not cover the ground truth (GT) location, its results tend to hold a significantly higher precision than OLS and WLS.
+For both datasets, though the EKF positionings may not cover the grouth truth (GT) location, its results tend to hold a significantly higher precision than OLS and WLS. Besides, EKF characterizes smooth change between adjacent epoch, while the other two generate frequent and sudden changes. This can also be reflected in Table 2 and 3, where the 2D standard deviation (STD) of the EKF is always the smallest.
 
-### Positioning Results Summary
+Notably, the multipath effect impacts on both user position and velocities estimation, and the urban datasets with **multipath effect** generates overall worse positioning results than those from the open-sky dataset. Figure 3 shows that the positioning errors increase from around 15m (open-sky) to around 100m (urban) in E, N, U directions with multipath effect. Figure 4 shows that the velocities in the three directions become larger for the urban dataset. The 2D positioning results in LLH frame for the three algorithms also overall locate more separated from the grouth truth, and positionings become more dispersed in the urban dataset with multipath, which indicates bad quality in both accuracy and precision.
 
-#### Open-Sky Dataset
 
-| Algorithm | 2D RMSE | 3D RMSE | 2D STD | 3D STD |
+#### Table 2: Positioning Results Summary for Open-Sky Dataset
+| Algorithm | 2D RMSE (m) | 3D RMSE (m) | 2D STD (m) | 3D STD (m) |
 | :-- | :-- | :-- | :-- | :-- |
 | OLS | 1.38 | 9.17 | 0.63 | 2.45 |
 | WLS | 1.35 | 6.28 | 0.67 | 2.54 |
 | EKF | 1.06 | 20.99 | 0.18 | 0.99 |
 
-#### Urban Dataset
-
-| Algorithm | 2D RMSE | 3D RMSE | 2D STD | 3D STD |
+#### Table 3: Positioning Results Summary for Urban Dataset
+| Algorithm | 2D RMSE (m) | 3D RMSE (m) | 2D STD (m) | 3D STD (m) |
 | :-- | :-- | :-- | :-- | :-- |
 | OLS | 61.07 | 92.32 | 22.89 | 35.72 |
 | WLS | 25.60 | 59.67 | 13.28 | 30.87 |
@@ -120,26 +139,15 @@ For both datasets, though the EKF positionings may not cover the ground truth (G
 
 ---
 
+
+
+### Acknowledgement:
+This work is partially aided by Perplexity.AI, including markdown format generation and some discussion on the emphemeris parameters.
+
+
 ### References
 
-You will need to replace the numeric references with actual links or citations in your GitHub Markdown document.
-
----
-
-### Figures
-
-Please insert figures as needed using Markdown syntax, e.g., `Figure Caption`.
-
----
-
-### Notes:
-
-1. **Citations**: Replace `[^1]`, ``, etc., with actual references or links.
-2. **Figures**: Insert figures using Markdown syntax, e.g., `Figure Caption`.
-3. **Tables**: Adjust table formatting as needed for readability.
-
-This Markdown version maintains the structure and content of your original LaTeX document but uses Markdown syntax for formatting and links.
-
-
-[^1]: https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/52988654/bc71b884-b5a7-4343-8b8c-7b3c2a287b1b/paste.txt
+[^1]: “FGI-GSRx software receiver,” Finnish Geospatial Research Institute, 2024. [Online]. Available: https://github.com/nlsfi/FGI-GSRx
+[^2]: H.-F. Ng, G. Zhang, K.-Y. Yang, S.-X. Yang, and L.-T. Hsu, “Improved weighting scheme using consumer-level GNSS L5/E5a/B2a pseudorange measurements in the urban area,” Advances in Space Research, 2020.
+[^3]: B. Xu and L.-T. Hsu, “Open-source MATLAB code for GPS vector tracking on a software-defined receiver,” GPS Solutions, vol. 23, no. 2, p. 46, Apr. 2019.
 
